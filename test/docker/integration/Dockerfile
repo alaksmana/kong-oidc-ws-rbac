@@ -1,9 +1,9 @@
 ARG KONG_BASE_TAG
 FROM kong${KONG_BASE_TAG}
 
-ENV LUA_PATH /usr/local/share/lua/5.1/?.lua;/usr/local/kong-oidc/?.lua;;
+ENV LUA_PATH /usr/local/share/lua/5.3/?.lua;/usr/local/kong-oidc/?.lua;;
 # For lua-cjson
-ENV LUA_CPATH /usr/local/lib/lua/5.1/?.so;;
+ENV LUA_CPATH /usr/local/lib/lua/5.3/?.so;;
 
 # Install unzip for luarocks, gcc for lua-cjson
 RUN yum install -y unzip gcc 
