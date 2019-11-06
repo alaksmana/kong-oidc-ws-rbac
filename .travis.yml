@@ -17,5 +17,6 @@ script:
 
 after_success:
   - luarocks install luacov-coveralls
-  - luacov-coveralls 
+  - EXCLUDE_DIR=`echo $TRAVIS_BUILD_DIR/lua_install | sed 's/-/%-/'`
+  - luacov-coveralls -e $EXCLUDE_DIR
 
