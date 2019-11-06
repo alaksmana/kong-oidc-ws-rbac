@@ -16,7 +16,6 @@ script:
   - . ci/run.sh
 
 after_success:
-  - luarocks install luacov
   - luarocks install luacov-coveralls
-  - luacov-coveralls -e $TRAVIS_BUILD_DIR/lua_install
+  - luacov-coveralls 
 
