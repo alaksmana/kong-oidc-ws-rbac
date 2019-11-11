@@ -28,7 +28,15 @@ end
 function handle(oidcConfig)
   local response
   if oidcConfig.introspection_endpoint then
-    response = introspect(oidcConfig)
+    
+    if ngx.var.scheme == "ws" or ngx.var.scheme == "wss" then
+       ngx.log(ngx.DEBUG, "Entering SCHEME: " .. ngx.var.scheme)  
+       return nil
+    end
+    if ngx.var.scheme == "http" or ngx.var.scheme == "https" then
+      response = introspect(oidcConfig)
+    end
+    
     if response then
       utils.injectUser(response)
     end

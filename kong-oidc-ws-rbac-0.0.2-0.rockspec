@@ -1,8 +1,8 @@
 package = "kong-oidc-ws-rbac"
-version = "0.0.1-0"
+version = "0.0.2-0"
 source = {
     url = "git://github.com/alaksmana/kong-oidc-ws-rbac",
-    tag = "v0.0.1",
+    tag = "v0.0.2",
     dir = "kong-oidc-ws-rbac"
 }
 description = {
