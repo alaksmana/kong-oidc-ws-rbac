@@ -28,14 +28,13 @@ end
 function handle(oidcConfig)
   local response
   if oidcConfig.introspection_endpoint then
-    
-    if ngx.var.scheme == "ws" or ngx.var.scheme == "wss" then
+    local header = ngx.req.get_headers()['Upgrade']
+    if header == "websocket" then
        ngx.log(ngx.DEBUG, "Entering SCHEME: " .. ngx.var.scheme)  
        return nil
     end
-    if ngx.var.scheme == "http" or ngx.var.scheme == "https" then
-      response = introspect(oidcConfig)
-    end
+    
+    response = introspect(oidcConfig)
     
     if response then
       utils.injectUser(response)
