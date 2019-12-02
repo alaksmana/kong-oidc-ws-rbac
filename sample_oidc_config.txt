@@ -1,0 +1,19 @@
+{
+    "realm": "rpm",
+    "scope": "openid",
+    "filters": null,
+    "client_id": "rpm",
+    "discovery": "http://192.168.25.35:58180/auth/realms/master/.well-known/openid-configuration",
+    "ssl_verify": "no",
+    "bearer_only": "yes",
+    "logout_path": "/logout",
+    "client_secret": "d7c2819d-9d10-46af-a822-385c175d85fe",
+    "response_type": "code",
+    "session_secret": null,
+    "redirect_uri_path": null,
+    "recovery_page_path": null,
+    "introspection_endpoint": "http://192.168.25.35:58180/auth/realms/rpm/protocol/openid-connect/token/introspect",
+    "redirect_after_logout_uri": "/",
+    "token_endpoint_auth_method": "client_secret_post",
+    "introspection_endpoint_auth_method": "client_secret_post"
+}

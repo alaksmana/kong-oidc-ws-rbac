@@ -14,7 +14,10 @@ script:
   - . ci/setup.sh
   - . ci/run.sh
 
-# after_success:
+after_success:
+  - docker build -t alaksmana/kong-oidc:0.0.2 .
+  - bash ./docker_push
+  
 #   - luarocks install luacov-coveralls
 #   - luacov-coveralls
 

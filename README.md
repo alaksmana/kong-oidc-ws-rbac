@@ -186,3 +186,20 @@ To tear the environment down:
 ```
 ./bin/teardown-env.sh
 ```
+
+# Example Body of Websocket subscription
+```
+{"id":"1","type":"start","payload":{"variables":{},"extensions":{},"operationName":null,"query":"subscription {\n  andre_test(limit: 10) {\n    id\n    kolom1\n    kolom2\n  }\n}\n"}}
+```
+
+# Example Body of Websocket Connection 
+
+Notice inside the BODY of Upgraded http connection below:
+
+```
+{"id":"1","type":"start","payload":{"variables":{},"extensions":{},"operationName":null,"query":"subscription {\n  menu: dev_menu(where: {roleId: {_eq: \"user\"}}) {\n    data\n    roleId\n    __typename\n  }\n}\n"}}
+
+{"type":"connection_ack"}
+
+{"type":"data","id":"1","payload":{"data":{"menu":[{"data":[{"icon": "home", "type": "dashboard", "title": "Dashboard", "children": [], "endpoint": "/dashboard"}, {"icon": "home", "type": "iframe", "title": "iFrame", "children": [{"icon": "home", "type": "iframe", "title": "I01", "children": [], "endpoint": "/iframe/I01"}, {"icon": "home", "type": "iframe", "title": "I02", "children": [], "endpoint": "/iframe/I02"}, {"icon": "home", "type": "iframe", "title": "IB01", "children": [], "endpoint": "/iframe/IB01"}], "endpoint": "/iframe"}, {"icon": "home", "type": "table", "title": "Masters", "children": [{"icon": "home", "type": "table", "title": "Financial Element ID", "children": [], "endpoint": "/masters/FinElemId"}, {"icon": "home", "type": "table", "title": "Organization Unit", "children": [], "endpoint": "/masters/OrgUnit"}, {"icon": "home", "type": "table", "title": "GL Account", "children": [], "endpoint": "/masters/GlAccount"}, {"icon": "home", "type": "table", "title": "Common COA ID", "children": [], "endpoint": "/masters/CommonCOA"}, {"icon": "home", "type": "table", "title": "Transfer Pricing Common COA", "children": [], "endpoint": "/masters/TpCommonCOA"}, {"icon": "home", "type": "table", "title": "Source Org Unit ID", "children": [], "endpoint": "/masters/SourceOrgUnitId"}, {"icon": "home", "type": "table", "title": "Tier ID", "children": [], "endpoint": "/masters/Tier"}, {"icon": "home", "type": "table", "title": "Org Unit Tree", "children": [], "endpoint": "/tree/OrgUnitTree"}, {"icon": "home", "type": "table", "title": "Product Hierarchy", "children": [], "endpoint": "/tree/ProductHierarchy"}, {"icon": "home", "type": "table", "title": "Map Product To FTP Method", "children": [], "endpoint": "/masters/ProductHierarchyFTPMethodMap"}], "endpoint": "/masters"}, {"icon": "home", "type": "table", "title": "Interest Curve", "children": [{"icon": "home", "type": "table", "title": "Interest Rate Code", "children": [], "endpoint": "/InterestCurve/InterestRateCode"}, {"icon": "home", "type": "table", "title": "Interest Rate Term", "children": [], "endpoint": "/InterestCurve/InterestRateTerm"}, {"icon": "home", "type": "table", "title": "Interest Rate Details", "children": [], "endpoint": "/InterestCurve/InterestRateRates"}], "endpoint": "/InterestCurve"}, {"icon": "home", "type": "table", "title": "Currencies", "children": [{"icon": "home", "type": "table", "title": "Currencies Form", "children": [], "endpoint": "/currencies/Currencies"}, {"icon": "home", "type": "table", "title": "Active/InActive Currencies", "children": [], "endpoint": "/currencies/CurrenciesStatus"}, {"icon": "home", "type": "table", "title": "Exchange Rates", "children": [], "endpoint": "/currencies/ExchangeRates"}], "endpoint": "/currencies"}, {"icon": "home", "type": "table", "title": "Moving Average", "children": [{"icon": "home", "type": "table", "title": "Simple Moving Average", "children": [], "endpoint": "/MovingAverage/SimpleMovingAverage"}, {"icon": "home", "type": "table", "title": "Blended Moving Average", "children": [], "endpoint": "/MovingAverage/BlendedMovingAvg"}, {"icon": "home", "type": "table", "title": "Weighted Moving Average", "children": [], "endpoint": "/MovingAverage/WeightedMovingAvg"}], "endpoint": "/MovingAverage"}],"roleId":"user","__typename":"dev_menu"}]}}}
+```
